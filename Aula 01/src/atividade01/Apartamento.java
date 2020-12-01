@@ -39,6 +39,7 @@ public class Apartamento {
 	}
 	
 	public int hashCode() {
-		return this.getCodigo();
+		// return this.getCodigo();
+		return 0;
 	}
 }
