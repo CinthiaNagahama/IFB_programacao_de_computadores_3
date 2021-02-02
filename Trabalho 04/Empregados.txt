@@ -1,0 +1,24 @@
+{
+	"cpf": "11122233365",
+        "nome": "Maria Gonçalves",
+        "idade": 65,
+        "salario": 2077.5
+},
+{
+        "cpf": "12132352566",
+        "nome": "José Bezerra",
+        "idade": 32,
+        "salario": 1090.45
+},
+{
+        "cpf": "77788899945",
+        "nome": "Marcela Dias Gomes",
+        "idade": 44,
+        "salario": 5789.9
+},
+{
+	"cpf": "44455566621",
+	"nome": "Ramires Ramirez",
+	"idade": 22,
+	"salario": 677.89
+}
