@@ -1,9 +1,13 @@
 package prog03.trabalho04.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.lang.NonNull;
 
@@ -20,6 +24,9 @@ public class Empregado {
 	private String nome;
 	private Integer idade;
 	private Double salario;
+	
+	@OneToMany(mappedBy = "empregado", targetEntity = Dependente.class, cascade =  CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Dependente> dependentes = new ArrayList<>();
 	
 	public Empregado() { }
 	

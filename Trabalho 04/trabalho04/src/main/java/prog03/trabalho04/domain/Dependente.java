@@ -2,7 +2,6 @@ package prog03.trabalho04.domain;
 
 import java.time.LocalDate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +18,8 @@ public class Dependente {
 	private String grauParentesco;
 	private LocalDate dataNascimento;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
-	@JoinColumn(name = "cpf_empregado", updatable = true)
+	@ManyToOne
+	@JoinColumn(name = "cpf_empregado")
 	private Empregado empregado;
 	
 	public Dependente() { }	
