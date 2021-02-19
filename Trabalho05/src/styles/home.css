@@ -1,0 +1,20 @@
+.title-trabalho{
+  margin: 5% 0;
+
+  display: flexbox;
+}
+
+h1{
+  display: flex;
+  justify-content: center;
+
+  font: 400 4rem Roboto Slab, sans-serif;
+  word-spacing: 0.8rem;
+}
+
+h3{
+  display: flex;
+  justify-content: center;
+
+  font: 400 1.5rem Roboto Slab, sans-serif;
+}
