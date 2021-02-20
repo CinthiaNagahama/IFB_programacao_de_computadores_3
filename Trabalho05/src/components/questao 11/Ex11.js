@@ -1,41 +1,54 @@
 import React, {useState} from 'react';
-import {delta} from './questao11';
+import {findDelta} from './questao11';
+import '../../styles/cards.css';
 
 export default function Ex11(){
   const [a, setA] = useState("");
   const [b, setB] = useState("");
   const [c, setC] = useState("");
+  const [delta, setDelta] = useState("");
 
-  function handleQuestao() {
-    delta(a, b, c);
+  const handleQuestao = _ => {
+    let temp = findDelta(a, b, c);
+    if(isNaN(temp)){
+      alert("Valores dados não são números");
+    } else {
+      setDelta(temp);
+    }
   }
 
   return(
     <div className="question-11 card">
-      <fieldset>
-        <form onSubmit={handleQuestao}>
-          <label htmlFor="first-value">Insira o valor de a</label>            
-          <input 
-            type="text" 
-            id="first-value"
-            onChange={event => {setA(parseInt(event.target.value))}}
-          />
-          <label htmlFor="second-value">Insira o valor de b</label>    
-          <input 
-            type="text" 
-            id="second-value"
-            onChange={event => {setB(parseInt(event.target.value))}}  
-          />
-          <label htmlFor="third-value">Insira o valor de c</label>    
-          <input 
-            type="text" 
-            id="third-value"
-            onChange={event => {setC(parseInt(event.target.value))}}
-          />
-          <input type="submit" value="Enviar"/>
-        </form>
-      </fieldset>
-      <span>Ex. ax^2 + bx + c</span>
+      <p className="question-title">Exercício 11</p>
+      <div>
+        <p className="card-command">Calcule o delta de uma função quadrática</p>
+        <p className="secret-card-command">Exemplo de função quadrática: ax^2 + bx + c</p>
+      </div>
+      <div className="card-inputs"> 
+        <input 
+          type="text" 
+          placeholder="a"
+          onChange={event => {setA(event.target.value)}}
+        />
+        <input 
+          type="text" 
+          placeholder="b"
+          onChange={event => {setB(event.target.value)}}  
+        /> 
+        <input 
+          type="text" 
+          placeholder="c"
+          onChange={event => {setC(event.target.value)}}
+        />
+      </div>
+      <div className="card-button-container">
+        <div className="card-button" onClick={() => handleQuestao()}>
+          <span>Enviar</span>  
+        </div>
+      </div>
+      <div>
+        <p>Delta = {delta}</p>
+      </div>
     </div>
   );
 }

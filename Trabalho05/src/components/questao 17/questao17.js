@@ -1,11 +1,4 @@
-export function sumMatrixDiagonals(matrixJSON){
-  var matrix = [];
-  
-  for(var k = 0; k < matrixJSON.length; k++){
-    matrix.push([]);
-    matrix[k] = matrixJSON[k].valores.split(",");
-  }
-
+export function sumMatrixDiagonals(matrix){
   var matrixSize = matrix.length
   if(matrixSize != matrix[0].length) return alert("Matrix não quadrática.");
 

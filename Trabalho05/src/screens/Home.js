@@ -26,11 +26,13 @@ export default function Home(){
   return(
     <div className="home-container">
       <div className="title-trabalho">
+        <h3>Programação de Computadores III</h3>
         <h1>TRABALHO 05</h1>
         <h3>por: Cinthia Mie N. Ungefehr</h3>
       </div>
-      <div className="questions-container">
-        <Ex01/>
+      
+      <div className="questions-container"> 
+        <Ex01/> 
         <Ex02/>
         <Ex03/>
         <Ex04/>
@@ -50,6 +52,16 @@ export default function Home(){
         <Ex18/>
         <Ex19/>
         <Ex20/>
+      </div>
+      <div className="footer">
+        <h3>Feito por:</h3>
+        <h2>Cinthia Mie N. Ungefehr</h2>
+        <p id="git">Cheque o código no meu 
+          <a 
+            href="https://github.com/CinthiaNagahama/programacao_de_computadores_3/tree/main/Trabalho05/src"
+            target="blank"
+          > Git Hub</a>
+        </p>
       </div>
     </div>
   );

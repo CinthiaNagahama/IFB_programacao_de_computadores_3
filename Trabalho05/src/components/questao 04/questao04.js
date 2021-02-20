@@ -1,3 +1,3 @@
 export function ehMenorDeIdade(idade){
-  return alert(idade < 18 ? "Menor de idade" : "Maior de idade");
+  return idade < 18 ? "menor de idade" : "maior de idade";
 }

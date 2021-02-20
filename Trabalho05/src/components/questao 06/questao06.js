@@ -1,3 +1,3 @@
-export function imc(altura, peso){
-  return alert((peso/(altura*altura)).toFixed(2));
+export function findImc(altura, peso){
+  return (peso/(altura*altura)).toFixed(2);
 }

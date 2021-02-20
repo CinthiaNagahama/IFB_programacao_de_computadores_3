@@ -1,11 +1,4 @@
-export function sumMatrixPairs(matrixJSON){
-  var matrix = [];
-  
-  for(var k = 0; k < matrixJSON.length; k++){
-    matrix.push([]);
-    matrix[k] = matrixJSON[k].valores.split(",");
-  }
-
+export function sumMatrixPairs(matrix){
   var sumPairs = {sum: 0};
 
   for(var i = 0; i < matrix.length; i++){
