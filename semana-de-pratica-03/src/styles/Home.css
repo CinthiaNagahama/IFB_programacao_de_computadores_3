@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:   100vh;
+}
+
+.card-button, .card-button img {
+  min-width: 1vh;
+  min-height: 1vh;
+  max-width: 5vh;
+  max-height: 5vh;
+
+  padding: 2% 4%;
+  border-radius: 4px;
+  border: none;
+
+  background: transparent;
+  cursor: pointer;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-button img {
+  min-width: 5vh;
+  min-height: 5vh;
+  max-width: 10vh;
+  max-height: 10vh;
+}

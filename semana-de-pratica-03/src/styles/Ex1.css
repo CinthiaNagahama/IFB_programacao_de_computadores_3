@@ -1,0 +1,106 @@
+p, label, input, button{
+  color: var(--blue);
+}
+
+.ex1-title{
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+fieldset{
+  border: none;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  column-gap: 3rem;
+}
+
+label, button, .ex1-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+label, button{
+  font-size: 1.2rem;
+}
+
+.ex1-button{
+  width: 10rem;
+  height: 2rem;
+  margin: 1.5rem;
+
+  border: none;
+  border-radius: 4px;
+  background-color: var(--blue);
+  color: var(--light);
+
+  cursor: pointer;
+}
+
+.ex1-button:hover{
+  background-color: var(--light-blue);
+}
+
+input{
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  height: 2rem;
+  width: 7rem;
+  outline: none;
+
+  border-radius: 5px;
+  border: solid 1px rgb(189, 189, 189);
+
+  text-align: center;
+}
+
+input[type=number]:focus{
+  box-shadow: 0 0 5px var(--light-blue);
+  border: 1px solid var(--light-blue);
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.ex1-results{
+  height: 13rem;
+}
+
+.ex1-results p {
+  font-size: 1.2rem;
+}
+
+.ex1-results #ex1-count-results{
+  height: 15%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ex1-results #ex1-values-results{
+  background-color: coral;
+  
+  height: 30%;
+  overflow: auto;
+
+  display: flex;
+  justify-content: left;
+}
