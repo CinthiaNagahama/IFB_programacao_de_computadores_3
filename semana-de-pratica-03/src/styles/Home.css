@@ -2,21 +2,41 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
 }
 
 .container{
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   justify-content: center;
-  align-items: center;
   height:   100vh;
 }
 
-.card-button, .card-button img {
-  min-width: 1vh;
-  min-height: 1vh;
-  max-width: 5vh;
-  max-height: 5vh;
+header{
+  margin-top: 40%;
+  line-height: 4rem;
+}
+
+h1, h3, h4{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+h3{
+  font-size: 2rem;
+}
+
+h4{
+  font-size: 1.5rem;
+}
+
+.card-button {
+  margin-top: 0;
+  height: 20vh;
 
   padding: 2% 4%;
   border-radius: 4px;
@@ -25,14 +45,37 @@
   background: transparent;
   cursor: pointer;
   
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
 }
 
+.card-button:focus{
+  outline: none;
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  80% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+
+.card-button img:hover{
+  animation: bounce  1s;
+}
+
 .card-button img {
-  min-width: 5vh;
-  min-height: 5vh;
-  max-width: 10vh;
-  max-height: 10vh;
+  width: 15vh;
+  height: 15vh;
 }

@@ -5,10 +5,9 @@ import Ex1 from './exercicios/Ex1';
 import Card from './Card';
 import '../styles/Modal.css'
 
-export const Modal = ({showModal, setShowModal, exTitle}) => {
+export const Modal = ({showModal, setShowModal, exTitle, ex}) => {
   const modalRef = useRef();
 
-  /* Não está funcionando, ainda
   const animation = useSpring({
     config: {
       duration: 250
@@ -16,7 +15,6 @@ export const Modal = ({showModal, setShowModal, exTitle}) => {
     opacity: showModal ? 1 : 0,
     transform: showModal ? `translateY(0%)` : `translateY(-100%)` 
   });
-  */
 
   const closeModal = e => {
     if(modalRef.current === e.target){
@@ -39,11 +37,11 @@ export const Modal = ({showModal, setShowModal, exTitle}) => {
     <>
       {showModal ? (
         <div className="modal-background" ref={modalRef} onClick={closeModal}>
-          <div> {/*style={animation}*/}
+          <animated.div style={animation}>
             <div className="modal-wrapper" showModal={showModal}>
               <div className="modal-content">
                 <Card title={exTitle}>
-                  <Ex1/>
+                  {ex === 1 ? <Ex1/> : null}
                 </Card>
               </div>
               <button 
@@ -54,8 +52,8 @@ export const Modal = ({showModal, setShowModal, exTitle}) => {
                 <MdClose/>
               </button>
             </div>
-          </div>
-        </div>
+        </animated.div>
+      </div>
       ) : (
         null
       )}

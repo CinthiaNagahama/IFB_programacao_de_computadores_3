@@ -83,7 +83,7 @@ export default function Ex1(){
       </div>
       <div className="ex1-results">
         <p id="ex1-count-results">
-          Existem {inBetween.count} valores múltiplos de 2 e 3 entre {minValue} e {maxValue}.
+          Existem {inBetween.count} valores múltiplos de 2 e 3 entre {isNaN(minValue) ? "_" : minValue} e {isNaN(maxValue) ? "_" : maxValue}.
         </p>
         {
           inBetween.count === 1 ? (

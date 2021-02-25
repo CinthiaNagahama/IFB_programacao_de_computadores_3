@@ -18,10 +18,11 @@ export default function Home(){
         <h1>Semana de Prática 03</h1>
         <h3>por Cinthia Mie N. Ungefehr</h3>
       </header>
+
       <button className="card-button" onClick={openModal}>
         <img src={rocket} alt="foguete"/>
       </button>
-      <Modal showModal={showModal} setShowModal={setShowModal} exTitle="Exercício 01"/>
+      <Modal showModal={showModal} setShowModal={setShowModal} exTitle="Exercício 01" ex={1}/>
     </div>
   );
 }
