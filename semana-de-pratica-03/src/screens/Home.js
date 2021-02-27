@@ -22,7 +22,7 @@ export default function Home(){
       <button className="card-button" onClick={openModal}>
         <img src={rocket} alt="foguete"/>
       </button>
-      <Modal showModal={showModal} setShowModal={setShowModal} exTitle="Exercício 01" ex={1}/>
+      <Modal showModal={showModal} setShowModal={setShowModal} ex={1}/>
     </div>
   );
 }

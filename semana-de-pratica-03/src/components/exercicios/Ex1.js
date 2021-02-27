@@ -75,9 +75,10 @@ export default function Ex1(){
       </fieldset>
       <div className="ex1-button-container">
         <button 
-            type="submit" 
-            className="ex1-button"
-            onClick={() => handleInBetween()}>
+          type="submit" 
+          className="ex1-button"
+          onClick={() => handleInBetween()}
+        >
           Calcular
         </button>
       </div>

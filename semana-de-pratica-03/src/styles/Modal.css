@@ -40,6 +40,32 @@
   margin-bottom: 1rem;
 }
 
+.modal-arrow-buttons-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-arrow-buttons{
+  cursor: pointer;
+
+  margin: 0 1rem;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  z-index: 10;
+
+  background-color: var(--blue);
+  color: var(--light)
+}
+
+.modal-arrow-buttons:hover{
+  background-color: var(--light-blue);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 .modal-close-button{
   cursor: pointer;
 

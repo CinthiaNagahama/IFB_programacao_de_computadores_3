@@ -99,7 +99,7 @@ input[type=number] {
 }
 
 .ex1-results #ex1-values-results{  
-  height: 30%;
+  height: 10rem;
   overflow: auto;
 
   display: flex;
