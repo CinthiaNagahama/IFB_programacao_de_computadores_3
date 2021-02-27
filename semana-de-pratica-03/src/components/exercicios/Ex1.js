@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../../styles/Ex1.css'
+import '../../styles/ExStyle.css';
+import '../../styles/Ex1.css';
 
 export default function Ex1(){
   const [minValue, setMinValue] = useState();
@@ -54,7 +55,7 @@ export default function Ex1(){
   return(
     <div className="ex1-content">
       <p className="ex1-title">Encontre os múltiplos de 2 e 3 entre dois valores</p>
-      <fieldset>
+      <fieldset className="ex1-fieldset">
         <label>Valor mínimo</label>
         <input 
           type="number" 

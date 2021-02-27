@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import '../../styles/Ex3.css';
+
 const re = /\d+\.\d+/
 
 function Aluno (nr){
@@ -19,22 +21,31 @@ function populateRegister(){
       minimumIntegerDigits: 6,
       useGrouping: false
     }));
-    a.setNota((Math.random() * 100).toFixed(2));
+    a.setNota((Math.random() * 101).toFixed(2));
     register.push(a);
   }
 }
 
 export default function Ex3(){
-  var aprovados = 0;
-  var reprovados = 0;
-
-  const [generateTable, SetGenerateTable] = useState(false);
+  const [generateTable, setGenerateTable] = useState({
+    generate: false,
+    aproved: 0,
+    reproved: 0
+  });
 
   const handleGenerateTable = () => {
-    SetGenerateTable(prev => !prev);
+    let aprovados = 0;
+    let reprovados = 0;
+
     register.forEach(student => {
       parseFloat(student.getNota()) >= 60.0 ? aprovados++ : reprovados++;
     })
+    
+    setGenerateTable({
+      generate: true,
+      aproved: aprovados,
+      reproved: reprovados
+    });
   }
 
   return (
@@ -46,28 +57,38 @@ export default function Ex3(){
           className="ex3-button"
           onClick={() => handleGenerateTable()}
         >
-          Gerar
+          Mostrar relatório
         </button>
       </div>
-      <table className="ex3-table-results">
-        <tr>
-          <th>Aluno</th>
-          <th>Nota</th>
-          <th>Status</th>
-        </tr>
-        {generateTable ? (
-          register.map((student) => (
-            <tr>
-              <td>{student.nr}</td>
-              <td>{student.getNota()}</td>
-              <td>{parseFloat(student.getNota()) >= 60 ? "APROVADO" : "REPROVADO"}</td>
-            </tr>
-          ))
-        ) : (
-          null
-        )}
-      </table>
-      <p>APROVADOS: {aprovados} ({aprovados / 20}%) | REPROVADOS: {reprovados} ({reprovados / 20}%)</p>
+      {generateTable.generate && (
+        <div className="ex3-table-container">
+          <table className="ex3-table">
+            <thead>
+              <tr>
+                <th>Aluno</th>
+                <th>Nota</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {register.map((student) => (
+                <tr>
+                  <td>{student.nr}</td>
+                  <td>{student.getNota()}</td>
+                  <td>{parseFloat(student.getNota()) >= 60 ? "APROVADO" : "REPROVADO"}</td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>Resultados</td>
+                <td>APROVADOS: {generateTable.aproved} ({(generateTable.aproved / 20 * 100).toFixed(2)}%)</td>
+                <td>REPROVADOS: {generateTable.reproved} ({(generateTable.reproved / 20 * 100).toFixed(2)}%)</td>                
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      )}
     </div>
   );
 }

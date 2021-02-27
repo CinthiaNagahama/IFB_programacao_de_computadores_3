@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import '../../styles/Ex2.css';
+
 function findFactorial(n){
   var res = 1;
   for(let i = 2; i <= n; i++){
@@ -9,14 +11,14 @@ function findFactorial(n){
 }
 
 export default function Ex2(){
-  const [num, SetNum] = useState(0);
-  const [factorial, SetFactorial] = useState({
+  const [num, setNum] = useState(0);
+  const [factorial, setFactorial] = useState({
     fact: 1,
     execTime: 0.0
   });
 
   const handleNum = value => {
-    SetNum(parseInt(value));
+    setNum(parseInt(value));
   }
 
   const handleFactorial = _ => {
@@ -26,13 +28,13 @@ export default function Ex2(){
       fact: findFactorial(num),
       execTime: Date.now() - ini
     }
-    SetFactorial(temp);
+    setFactorial(temp);
   }
 
   return (
     <div className="ex2-content">
       <p className="ex2-title">Encontrar o fatorial de {num}</p>
-      <fieldset>
+      <fieldset className="ex2-fieldset">
         <label>Insira um valor</label>
         <input 
           type="number" 

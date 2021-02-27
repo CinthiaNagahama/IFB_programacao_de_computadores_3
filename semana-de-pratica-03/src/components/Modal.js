@@ -2,11 +2,17 @@ import React, {useRef, useEffect, useCallback, useState} from 'react';
 import {useSpring, animated} from 'react-spring';
 import {MdClose} from 'react-icons/md';
 import {IoArrowForwardCircle, IoArrowBackCircle} from 'react-icons/io5';
-import Ex1 from './exercicios/Ex1';
+
 import Card from './Card';
-import '../styles/Modal.css'
+
+import Ex1 from './exercicios/Ex1';
 import Ex2 from './exercicios/Ex2';
 import Ex3 from './exercicios/Ex3';
+import Ex4 from './exercicios/Ex4';
+import Ex5 from './exercicios/Ex5';
+import Ex6 from './exercicios/Ex6';
+
+import '../styles/Modal.css'
 
 export const Modal = ({showModal, setShowModal, ex}) => {
   const modalRef = useRef();
@@ -56,20 +62,28 @@ export const Modal = ({showModal, setShowModal, ex}) => {
                   {question === 1 && <Ex1/>}
                   {question === 2 && <Ex2/>}
                   {question === 3 && <Ex3/>}
+                  {question === 4 && <Ex4/>}
+                  {question === 5 && <Ex5/>}
+                  {question === 6 && <Ex6/>}
                 </Card>
                 <div className="modal-arrow-buttons-container">
-                  <button 
-                    className="modal-arrow-buttons"
-                    onClick={() => goToPreviousQuestion()}
-                  >
-                    <IoArrowBackCircle/>
-                  </button>
-                  <button 
-                    className="modal-arrow-buttons"
-                    onClick={() => goToNextQuestion()}
-                  >
-                    <IoArrowForwardCircle/>
-                  </button>
+                  {question > 1 ? (
+                    <button 
+                      className="modal-arrow-buttons"
+                      onClick={() => goToPreviousQuestion()}
+                    >
+                      <IoArrowBackCircle/>
+                    </button>
+                  ) : null }
+
+                  {question < 6 ? (
+                    <button 
+                      className="modal-arrow-buttons"
+                      onClick={() => goToNextQuestion()}
+                    >
+                      <IoArrowForwardCircle/>
+                    </button>
+                  ) : null }
                 </div>
               </div>
               <button 
