@@ -91,9 +91,11 @@ export default function Ex4(){
           Gerar
         </button>
       </div>
-      <div className="ex4-results">
-        <p>[{array?.join(", ")}]</p>
-      </div>
+      { array !== undefined &&
+        <div className="ex4-results">
+          <p>[{array?.join(", ")}]</p>
+        </div>
+      }
     </div>
   );
 }
