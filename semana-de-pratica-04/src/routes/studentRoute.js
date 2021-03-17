@@ -17,8 +17,8 @@ const getFormatedStudents = () => {
         "nome": "",
         "matricula": "",
         "data_nascimento": "",
-        "idade": "",
-      }
+        "idade": ""
+      };
 
       updateStudent.nome = value.nome;
       updateStudent.matricula = value.matricula;
@@ -31,10 +31,9 @@ const getFormatedStudents = () => {
       now = new Date;
       updateStudent.idade = now.getFullYear() - ano;
       
-      if(mes > now.getMonth() || (mes == now.getMonth() && dia > now.getDate())){
+      if(mes > now.getMonth() || (mes == (now.getMonth() + 1) && dia > now.getDate())){
         updateStudent.idade--;
       }
-
       newStudentsList.push(updateStudent);
     });
 
@@ -64,7 +63,7 @@ const saveStudent = (students) => {
 };
 
 const studentRoute = (app) => {
-  app.route('/')
+  app.route('/students')
     .get((req, res) => {
       const students = getFormatedStudents();
 
