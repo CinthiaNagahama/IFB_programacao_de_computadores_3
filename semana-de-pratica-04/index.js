@@ -5,8 +5,6 @@ const cookieParser = require('cookie-parser');
 
 const studentRoute = require('./src/routes/studentRoute');
 
-var students = [];
-
 app
   // Set pug temolate path
   .set('views', './src/views')
@@ -17,17 +15,10 @@ app
   .use(express.urlencoded({ extended: true }))
   // GET
   .get('/', (req, res) => {
-    res.render('index', {
-      students: req.cookies.students
-    });
-  })
-  // POST
-  .post('/', (req, res) => {
-    students.push(req.body);
-
-    res.cookie('students', students, {httpOnly: true});
-
     var newStudentsList = [];
+
+    var students = req.cookies.students;
+
     students.map((value) => {
       var updateStudent = {
         "nome": "",
@@ -47,15 +38,26 @@ app
       now = new Date;
       updateStudent.idade = now.getFullYear() - ano;
       
-      if(mes > now.getMonth() || (mes == (now.getMonth() + 1) && dia > now.getDate())){
+      if(mes > (now.getMonth() + 1) || (mes == (now.getMonth() + 1) && dia > now.getDate())){
         updateStudent.idade--;
       }
       newStudentsList.push(updateStudent);
     });
 
+
     res.render('index', {
       students: newStudentsList
     });
+  })
+  // POST
+  .post('/', (req, res) => {
+    var students = req.cookies.students;
+
+    students.push(req.body);
+
+    res.cookie('students', students, {httpOnly: true});
+
+    res.redirect('/');
   })
   // Port
   .listen(3000, () => console.log('Server is running on port 3000'));
